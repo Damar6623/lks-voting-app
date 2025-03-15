@@ -96,7 +96,7 @@ jobs:
         id: pull-image-master
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: 121731170468.dkr.ecr.us-east-1.amazonaws.com/learninfra
+          ECR_REPOSITORY: 213940328604.dkr.ecr.us-east-1.amazonaws.com/lks-voting-image
         run: |
           docker pull 213940328604.dkr.ecr.us-east-1.amazonaws.com/lks-voting-image:worker
           docker pull 213940328604.dkr.ecr.us-east-1.amazonaws.com/lks-voting-image:vote
@@ -130,7 +130,7 @@ jobs:
         id: pull-image-node1
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: 121731170468.dkr.ecr.us-east-1.amazonaws.com/learninfra
+          ECR_REPOSITORY: 213940328604.dkr.ecr.us-east-1.amazonaws.com/lks-voting-image
         run: |
           docker pull 213940328604.dkr.ecr.us-east-1.amazonaws.com/lks-voting-image:worker
           docker pull 213940328604.dkr.ecr.us-east-1.amazonaws.com/lks-voting-image:vote
@@ -164,7 +164,7 @@ jobs:
         id: pull-image-node2
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: 121731170468.dkr.ecr.us-east-1.amazonaws.com/learninfra
+          ECR_REPOSITORY: 213940328604.dkr.ecr.us-east-1.amazonaws.com/lks-voting-image
         run: |
           docker pull 213940328604.dkr.ecr.us-east-1.amazonaws.com/lks-voting-image:worker
           docker pull 213940328604.dkr.ecr.us-east-1.amazonaws.com/lks-voting-image:vote
