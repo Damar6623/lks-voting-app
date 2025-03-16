@@ -79,7 +79,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
@@ -88,7 +88,7 @@ jobs:
 
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v2
+        uses: aws-actions/amazon-ecr-login@v1
 
       - name: Set Variable
         id: set-vars
@@ -104,7 +104,7 @@ jobs:
 
       - name: Fill in the new image ID in the Amazon ECS task definition (Vote)
         id: task-def-vote
-        uses: aws-actions/amazon-ecs-render-task-definition@v2
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: ${{ env.VOTE_TASK_DEFINITION }}
           container-name: ${{ env.VOTE_CONTAINER_NAME }}
@@ -112,7 +112,7 @@ jobs:
 
       - name: Fill in the new image ID in the Amazon ECS task definition (Result)
         id: task-def-result
-        uses: aws-actions/amazon-ecs-render-task-definition@v2
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: ${{ env.RESULT_TASK_DEFINITION }}
           container-name: ${{ env.RESULT_CONTAINER_NAME }}
@@ -120,7 +120,7 @@ jobs:
 
       - name: Fill in the new image ID in the Amazon ECS task definition (Worker)
         id: task-def-worker
-        uses: aws-actions/amazon-ecs-render-task-definition@v2
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: ${{ env.WORKER_TASK_DEFINITION }}
           container-name: ${{ env.WORKER_CONTAINER_NAME }}
