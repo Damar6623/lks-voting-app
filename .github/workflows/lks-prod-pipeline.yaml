@@ -4,11 +4,6 @@ on:
   push:
     branches:
       - "prod"
-    paths:
-      - .github/workflows/production_workflow.yaml
-      - "vote/**"
-      - "result/**"
-      - "worker/**"
 
 env:
   AWS_REGION: us-east-1
