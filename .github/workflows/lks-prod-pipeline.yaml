@@ -1,4 +1,4 @@
-name: Production Workflow
+name: LKS Prod Pipeline
 
 on:
   push:
@@ -54,7 +54,7 @@ jobs:
           WORKER_IMAGE_TAG: worker-${{ env.ENV }}-latest
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$VOTE_IMAGE_TAG --build-arg aws_region=${{ env.AWS_REGION }} --build-arg copy_or_mount="copy" -f vote/Dockerfile ./vote
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$VOTE_IMAGE_TAG
+          docker push $ECR_REPOSITORY:$VOTE_IMAGE_TAG
           echo "::set-output name=vote_image::$ECR_REGISTRY/$ECR_REPOSITORY:$VOTE_IMAGE_TAG"
 
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$RESULT_IMAGE_TAG --build-arg aws_region=${{ env.AWS_REGION }} --build-arg in_aws="yes" --build-arg copy_or_mount="copy" -f result/Dockerfile ./result
