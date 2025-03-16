@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: 213940328604.dkr.ecr.us-east-1.amazonaws.com/lks-voting-image
+  ECR_REPOSITORY: lks-voting-image
   ECS_SERVICE_VOTE: lks-vote-service
   ECS_SERVICE_RESULT: lks-result-service
   ECS_SERVICE_WORKER: lks-worker-service
@@ -53,8 +53,8 @@ jobs:
           RESULT_IMAGE_TAG: result-${{ env.ENV }}-latest
           WORKER_IMAGE_TAG: worker-${{ env.ENV }}-latest
         run: |
-          docker build -t $ECR_REPOSITORY:$VOTE_IMAGE_TAG --build-arg aws_region=${{ env.AWS_REGION }} --build-arg copy_or_mount="copy" -f vote/Dockerfile ./vote
-          docker push $ECR_REPOSITORY:$VOTE_IMAGE_TAG
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$VOTE_IMAGE_TAG --build-arg aws_region=${{ env.AWS_REGION }} --build-arg copy_or_mount="copy" -f vote/Dockerfile ./vote
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$VOTE_IMAGE_TAG
           echo "::set-output name=vote_image::$ECR_REGISTRY/$ECR_REPOSITORY:$VOTE_IMAGE_TAG"
 
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$RESULT_IMAGE_TAG --build-arg aws_region=${{ env.AWS_REGION }} --build-arg in_aws="yes" --build-arg copy_or_mount="copy" -f result/Dockerfile ./result
