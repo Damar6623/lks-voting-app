@@ -16,7 +16,7 @@ env:
   RESULT_TASK_DEFINITION: result/task-definition.json
   WORKER_TASK_DEFINITION: worker/task-definition.json
   VOTE_CONTAINER_NAME: lks-vote-container
-  RESULT_CONTAINER_NAME: lks-result-container
+  RESULT_CONTAINER_NAME: lks-result-conainer
   WORKER_CONTAINER_NAME: lks-worker-container
   ENV: "prod"
 
