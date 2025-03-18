@@ -1,4 +1,4 @@
-name: LKS PROD Pipeline
+name: LKS Prod Pipeline
 
 on:
   push:
