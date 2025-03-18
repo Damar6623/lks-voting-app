@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:213940328604:task-definition/lks-td-worker:3",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:213940328604:task-definition/lks-td-worker:6",
     "containerDefinitions": [
         {
             "name": "lks-worker-container",
-            "image": "213940328604.dkr.ecr.us-east-1.amazonaws.com/lks-voting-image:worker",
+            "image": "213940328604.dkr.ecr.us-east-1.amazonaws.com/lks-voting-image:worker-dev-latest",
             "cpu": 0,
             "portMappings": [
                 {
@@ -12,6 +12,12 @@
                     "hostPort": 80,
                     "protocol": "tcp",
                     "appProtocol": "http"
+                },
+                {
+                    "name": "lks-worker-container-81-tcp",
+                    "containerPort": 81,
+                    "hostPort": 81,
+                    "protocol": "tcp"
                 }
             ],
             "essential": true,
@@ -39,7 +45,7 @@
     "taskRoleArn": "arn:aws:iam::213940328604:role/LabRole",
     "executionRoleArn": "arn:aws:iam::213940328604:role/LabRole",
     "networkMode": "awsvpc",
-    "revision": 3,
+    "revision": 6,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -88,7 +94,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-03-16T05:02:16.449Z",
+    "registeredAt": "2025-03-18T03:54:58.645Z",
     "registeredBy": "arn:aws:sts::213940328604:assumed-role/voclabs/user3895407=105070-113",
     "enableFaultInjection": false,
     "tags": []

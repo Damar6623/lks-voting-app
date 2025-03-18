@@ -1,17 +1,23 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:213940328604:task-definition/lks-td-result:3",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:213940328604:task-definition/lks-td-result:6",
     "containerDefinitions": [
         {
-            "name": "lks-result-conainer",
-            "image": "213940328604.dkr.ecr.us-east-1.amazonaws.com/lks-voting-image:result",
+            "name": "lks-result-container",
+            "image": "213940328604.dkr.ecr.us-east-1.amazonaws.com/lks-voting-image:result-dev-latest",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "80",
+                    "name": "lks-result-container-80-tcp",
                     "containerPort": 80,
                     "hostPort": 80,
                     "protocol": "tcp",
                     "appProtocol": "http"
+                },
+                {
+                    "name": "lks-result-container-81-tcp",
+                    "containerPort": 81,
+                    "hostPort": 81,
+                    "protocol": "tcp"
                 }
             ],
             "essential": true,
@@ -39,7 +45,7 @@
     "taskRoleArn": "arn:aws:iam::213940328604:role/LabRole",
     "executionRoleArn": "arn:aws:iam::213940328604:role/LabRole",
     "networkMode": "awsvpc",
-    "revision": 3,
+    "revision": 6,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -88,7 +94,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-03-16T05:01:08.715Z",
+    "registeredAt": "2025-03-18T03:54:11.512Z",
     "registeredBy": "arn:aws:sts::213940328604:assumed-role/voclabs/user3895407=105070-113",
     "enableFaultInjection": false,
     "tags": []
