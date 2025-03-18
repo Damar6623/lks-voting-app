@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_REGION: us-east-1                 
-  ECR_REPOSITORY: lks-voting-image
+  ECR_REPOSITORY: test
   ENV: "dev"
 
 permissions:
@@ -96,7 +96,7 @@ jobs:
         id: pull-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: lks-voting-image
+          ECR_REPOSITORY: test
           WORKER_IMAGE_TAG: worker-${{ env.ENV }}-latest
           RESULT_IMAGE_TAG: result-${{ env.ENV }}-latest
           VOTE_IMAGE_TAG: vote-${{ env.ENV }}-latest
@@ -134,7 +134,7 @@ jobs:
         id: pull-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: lks-voting-image
+          ECR_REPOSITORY: test
           WORKER_IMAGE_TAG: worker-${{ env.ENV }}-latest
           RESULT_IMAGE_TAG: result-${{ env.ENV }}-latest
           VOTE_IMAGE_TAG: vote-${{ env.ENV }}-latest
@@ -172,7 +172,7 @@ jobs:
         id: pull-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: lks-voting-image
+          ECR_REPOSITORY: test
           WORKER_IMAGE_TAG: worker-${{ env.ENV }}-latest
           RESULT_IMAGE_TAG: result-${{ env.ENV }}-latest
           VOTE_IMAGE_TAG: vote-${{ env.ENV }}-latest
