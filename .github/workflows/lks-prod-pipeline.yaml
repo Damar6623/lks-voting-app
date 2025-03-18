@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_REGION: us-east-1                 
-  ECR_REPOSITORY: lks-voting-app 
+  ECR_REPOSITORY: lks-voting-image
   ECS_SERVICE_WORKER: lks-worker-service  
   ECS_SERVICE_RESULT: lks-result-service
   ECS_SERVICE_VOTE: lks-vote-service
@@ -162,6 +162,7 @@ jobs:
   notif:
     name: Sent Notification
     runs-on: ubuntu-latest
+    needs: deploy
     environment: Production
     steps:    
     - name: Configure AWS Credentials
