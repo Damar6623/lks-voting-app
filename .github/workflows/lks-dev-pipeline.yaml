@@ -104,6 +104,7 @@ jobs:
           docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$WORKER_IMAGE_TAG
       
 
+
   node1:
     name: Pull Image on node1
     runs-on: node1
